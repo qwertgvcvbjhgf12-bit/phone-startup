@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build-A-Phone Pro</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>📱 Build-A-Phone Pro Demo</header>
+
+<div class="container">
+
+<!-- PREVIEW -->
+<div class="preview">
+    <div id="phone" class="phone"><div class="screen"></div></div>
+    <h2 id="modelLabel">Custom X1</h2>
+    <div id="compat"></div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <div class="card">
+        <h3>Model</h3>
+        <select id="model">
+            <option>Custom X1</option>
+            <option>Custom Ultra</option>
+            <option>Custom Gamer</option>
+        </select>
+    </div>
+
+    <div class="card"><h3>Processor</h3>
+        <select id="cpu">
+            <option value="250,100,flagship">Snapdragon 8 Elite (+250)</option>
+            <option value="180,80,mid">Snapdragon 8s Gen 4 (+180)</option>
+            <option value="120,60,mid">Dimensity 9400 (+120)</option>
+        </select>
+    </div>
+
+    <div class="card"><h3>RAM</h3>...</div>
+    <div class="card"><h3>Storage</h3>...</div>
+    <div class="card"><h3>Display</h3>...</div>
+    <div class="card"><h3>Camera</h3>...</div>
+    <div class="card"><h3>Battery</h3>...</div>
+    <div class="card"><h3>Cooling</h3>...</div>
+    <div class="card"><h3>Charging</h3>...</div>
+    <div class="card"><h3>Body</h3>...</div>
+
+    <div class="card">
+        <h3>Color</h3>
+        <select id="color">
+            <option value="#444">Black</option>
+            <option value="#1d4ed8">Blue</option>
+            <option value="#d4af37">Gold</option>
+            <option value="#c0c0c0">Silver</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <div class="price" id="price">$499</div>
+        <div id="score">Performance: 100</div>
+        <div class="small">Demo shopping cart + login mockup</div>
+    </div>
+
+    <div class="card">
+        <h3>Account</h3>
+        <input placeholder="Email">
+        <input placeholder="Password" type="password">
+        <button class="secondary">Login / Sign Up</button>
+    </div>
+
+    <div class="card">
+        <h3>Shopping Cart</h3>
+        <button class="primary" onclick="alert('Added to demo cart')">Add To Cart</button>
+        <button class="secondary" onclick="alert('Demo checkout only')">Checkout</button>
+    </div>
+
+    <div class="card">
+        <h3>Order Tracking Dashboard</h3>
+        <input placeholder="Order #">
+        <button class="secondary" onclick="alert('Demo Status: Manufacturing')">Track Order</button>
+    </div>
+
+</div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
