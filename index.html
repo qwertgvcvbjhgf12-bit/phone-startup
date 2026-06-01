@@ -7,18 +7,17 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Three.js + Loaders + Controls -->
+<!-- Three.js -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 
 <body>
 
-<header>📱 Build-A-Phone Pro</header>
+<header>📱 Build-A-Phone Pro Demo</header>
 
 <div class="container">
 
+<!-- 3D VIEW -->
 <div class="preview">
     <div id="threeContainer"></div>
 
@@ -26,6 +25,7 @@
     <div id="compat"></div>
 </div>
 
+<!-- SIDEBAR -->
 <div class="sidebar">
 
     <div class="card">
@@ -80,7 +80,7 @@
         <select id="camera">
             <option value="60,10">Dual</option>
             <option value="140,25">Triple</option>
-            <option value="400,70">1-inch Pro</option>
+            <option value="400,70">1-inch Sensor Pro</option>
         </select>
     </div>
 
@@ -90,6 +90,33 @@
             <option value="0,0">5000mAh</option>
             <option value="120,20">6500mAh</option>
             <option value="250,50">8000mAh</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Cooling</h3>
+        <select id="cooling">
+            <option value="0,0">Standard</option>
+            <option value="120,25">Vapor Chamber</option>
+            <option value="200,40">Gaming Cooling</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Charging</h3>
+        <select id="charging">
+            <option value="20,5">45W</option>
+            <option value="100,20">100W</option>
+            <option value="160,35">150W</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Body</h3>
+        <select id="body">
+            <option value="0,0">Plastic</option>
+            <option value="150,25">Glass</option>
+            <option value="250,45">Titanium</option>
         </select>
     </div>
 
@@ -109,7 +136,6 @@
     </div>
 
 </div>
-
 </div>
 
 <script src="app.js"></script>
