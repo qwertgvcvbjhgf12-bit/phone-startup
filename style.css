@@ -21,27 +21,10 @@ header{
 
 .preview{
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     padding:30px;
-}
-
-.phone{
-    width:300px;
-    height:620px;
-    border-radius:45px;
-    background:#444;
-    position:relative;
-    box-shadow:0 20px 70px rgba(0,0,0,.6);
-    transition:.3s;
-}
-
-.screen{
-    position:absolute;
-    inset:10px;
-    background:linear-gradient(180deg,#111,#000);
-    border-radius:35px;
 }
 
 .sidebar{
@@ -69,29 +52,4 @@ select,input{
 .price{
     font-size:36px;
     font-weight:bold;
-}
-
-button{
-    padding:12px;
-    width:100%;
-    margin-top:8px;
-    border:none;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.primary{
-    background:white;
-    color:black;
-}
-
-.secondary{
-    background:#2563eb;
-    color:white;
-}
-
-.small{
-    font-size:12px;
-    color:#bbb;
 }
