@@ -1,22 +1,23 @@
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#0b0f19;
+    background:radial-gradient(circle at top,#111827,#05070f);
     color:white;
+    overflow:hidden;
 }
 
 header{
     padding:20px;
     text-align:center;
-    font-size:32px;
+    font-size:28px;
     font-weight:bold;
-    background:#111827;
+    background:#0f172a;
 }
 
 .container{
     display:grid;
     grid-template-columns:1.2fr .8fr;
-    min-height:100vh;
+    height:100vh;
 }
 
 .preview{
@@ -24,47 +25,38 @@ header{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:30px;
 }
 
-/* IMPORTANT FIX */
 #threeContainer{
-    width:300px;
-    height:620px;
-    display:block;
+    width:400px;
+    height:650px;
     border-radius:20px;
     overflow:hidden;
-    background:transparent;
-}
-
-/* canvas fix */
-canvas{
-    display:block;
 }
 
 .sidebar{
     padding:20px;
-    background:#131a29;
+    background:#0b1220;
     overflow:auto;
 }
 
 .card{
-    background:#1b2438;
+    background:#111827;
     padding:12px;
     border-radius:12px;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
-select,input{
+select{
     width:100%;
     padding:10px;
-    border-radius:8px;
-    border:none;
     background:#0f172a;
     color:white;
+    border:none;
+    border-radius:8px;
 }
 
 .price{
-    font-size:36px;
+    font-size:32px;
     font-weight:bold;
 }
