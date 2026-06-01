@@ -5,7 +5,7 @@ const ids = [
 ];
 
 // --------------------
-// 3D SETUP
+// THREE.JS SETUP
 // --------------------
 let scene, camera, renderer, phone;
 
@@ -15,18 +15,25 @@ function init3D(){
 
     scene = new THREE.Scene();
 
+    // FIXED ASPECT RATIO (IMPORTANT)
+    const width = 300;
+    const height = 620;
+
     camera = new THREE.PerspectiveCamera(
         75,
-        300/620,
+        width / height,
         0.1,
         1000
     );
 
     renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
-    renderer.setSize(300,620);
+    renderer.setSize(width, height);
+
+    container.innerHTML = ""; // prevents duplicate canvas
     container.appendChild(renderer.domElement);
 
-    const geometry = new THREE.BoxGeometry(2,4,0.2);
+    // PHONE MODEL
+    const geometry = new THREE.BoxGeometry(2, 4, 0.2);
 
     const material = new THREE.MeshStandardMaterial({
         color:0x444444,
@@ -37,11 +44,12 @@ function init3D(){
     phone = new THREE.Mesh(geometry, material);
     scene.add(phone);
 
-    const light = new THREE.DirectionalLight(0xffffff,1);
-    light.position.set(2,2,5);
+    // LIGHTS (FIXED BRIGHTNESS)
+    const light = new THREE.DirectionalLight(0xffffff, 2);
+    light.position.set(5,5,5);
     scene.add(light);
 
-    scene.add(new THREE.AmbientLight(0xffffff,0.5));
+    scene.add(new THREE.AmbientLight(0xffffff, 1));
 
     camera.position.z = 5;
 
@@ -51,19 +59,16 @@ function init3D(){
 function animate(){
     requestAnimationFrame(animate);
 
-    phone.rotation.y += 0.005;
+    phone.rotation.y += 0.01;
 
-    renderer.render(scene,camera);
+    renderer.render(scene, camera);
 }
 
 // --------------------
-// COLOR ANIMATION
+// COLOR UPDATE
 // --------------------
-function animateColorChange(color){
-    phone.material.color.lerp(
-        new THREE.Color(color),
-        0.2
-    );
+function updateColor(color){
+    phone.material.color.set(color);
 }
 
 // --------------------
@@ -80,27 +85,13 @@ function calc(){
         score += +v[1];
     });
 
-    document.getElementById("price").innerText = "$"+total;
-    document.getElementById("score").innerText = "Performance: "+score;
+    document.getElementById("price").innerText = "$" + total;
+    document.getElementById("score").innerText = "Performance: " + score;
 
-    // model label
     document.getElementById("modelLabel").innerText =
         document.getElementById("model").value;
 
-    // compatibility rule
-    let cpu = document.getElementById("cpu").value.split(",")[2];
-    let batteryIndex = document.getElementById("battery").selectedIndex;
-
-    let msg = "✅ Compatible";
-
-    if(cpu === "flagship" && batteryIndex === 0){
-        msg = "⚠ Flagship chip needs bigger battery";
-    }
-
-    document.getElementById("compat").innerText = msg;
-
-    // 3D updates
-    animateColorChange(document.getElementById("color").value);
+    updateColor(document.getElementById("color").value);
 }
 
 // --------------------
@@ -121,13 +112,13 @@ document.addEventListener("mousedown",(e)=>{
 document.addEventListener("mouseup",()=>dragging=false);
 
 document.addEventListener("mousemove",(e)=>{
-    if(!dragging) return;
+    if(!dragging || !phone) return;
 
     let dx = e.clientX - lastX;
     phone.rotation.y += dx * 0.01;
     lastX = e.clientX;
 });
 
-// init
+// INIT
 init3D();
 calc();
