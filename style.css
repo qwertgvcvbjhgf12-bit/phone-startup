@@ -27,6 +27,21 @@ header{
     padding:30px;
 }
 
+/* IMPORTANT FIX */
+#threeContainer{
+    width:300px;
+    height:620px;
+    display:block;
+    border-radius:20px;
+    overflow:hidden;
+    background:transparent;
+}
+
+/* canvas fix */
+canvas{
+    display:block;
+}
+
 .sidebar{
     padding:20px;
     background:#131a29;
