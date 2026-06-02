@@ -15,18 +15,129 @@
 
 <header>📱 Build-A-Phone Pro Demo</header>
 
-<!-- 📱 FIXED 3D TOP AREA -->
-<div class="top-preview">
+<div class="container">
 
+<!-- 3D VIEW -->
+<div class="preview">
     <div id="threeContainer"></div>
 
     <h2 id="modelLabel">Custom X1</h2>
     <div id="compat"></div>
-
 </div>
 
-<!-- 📜 SCROLLING SIDEBAR -->
+<!-- SIDEBAR -->
 <div class="sidebar">
 
     <div class="card">
-       
+        <h3>Model</h3>
+        <select id="model">
+            <option>Custom X1</option>
+            <option>Custom Ultra</option>
+            <option>Custom Gamer</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Processor</h3>
+        <select id="cpu">
+            <option value="150,80,mid">Snapdragon 7+ Gen 3</option>
+            <option value="300,140,flagship">Snapdragon 8 Gen 3</option>
+            <option value="380,180,flagship">Snapdragon 8 Elite</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>RAM</h3>
+        <select id="ram">
+            <option value="0,0">8GB</option>
+            <option value="60,15">12GB</option>
+            <option value="120,30">16GB</option>
+            <option value="200,50">24GB</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Storage</h3>
+        <select id="storage">
+            <option value="0,0">128GB</option>
+            <option value="50,10">256GB</option>
+            <option value="120,20">512GB</option>
+            <option value="220,35">1TB</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Display</h3>
+        <select id="display">
+            <option value="40,10">OLED 120Hz</option>
+            <option value="160,35">LTPO 144Hz</option>
+            <option value="250,50">MicroLED</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Camera</h3>
+        <select id="camera">
+            <option value="60,10">Dual</option>
+            <option value="140,25">Triple</option>
+            <option value="400,70">1-inch Sensor Pro</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Battery</h3>
+        <select id="battery">
+            <option value="0,0">5000mAh</option>
+            <option value="120,20">6500mAh</option>
+            <option value="250,50">8000mAh</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Cooling</h3>
+        <select id="cooling">
+            <option value="0,0">Standard</option>
+            <option value="120,25">Vapor Chamber</option>
+            <option value="200,40">Gaming Cooling</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Charging</h3>
+        <select id="charging">
+            <option value="20,5">45W</option>
+            <option value="100,20">100W</option>
+            <option value="160,35">150W</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Body</h3>
+        <select id="body">
+            <option value="0,0">Plastic</option>
+            <option value="150,25">Glass</option>
+            <option value="250,45">Titanium</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <h3>Color</h3>
+        <select id="color">
+            <option value="#444">Black</option>
+            <option value="#1d4ed8">Blue</option>
+            <option value="#d4af37">Gold</option>
+            <option value="#c0c0c0">Silver</option>
+        </select>
+    </div>
+
+    <div class="card">
+        <div class="price" id="price">$499</div>
+        <div id="score">Performance: 100</div>
+    </div>
+
+</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
