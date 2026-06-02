@@ -128,6 +128,73 @@
         </div>
       </div>
 
+
+      <!-- Camera -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">📷</span>
+          <h3>Camera System</h3>
+        </div>
+        <div class="camera-options" id="cameraGroup">
+
+          <button class="camera-opt active" data-key="single" data-val="0,20,Single 50MP" onclick="selectCamera(this)">
+            <div class="cam-island-preview ci-single">
+              <div class="ci-lens ci-l1"></div>
+              <div class="ci-flash"></div>
+            </div>
+            <div class="cam-opt-info">
+              <div class="cam-opt-name">Single</div>
+              <div class="cam-opt-spec">50MP main · f/1.8 · OIS</div>
+              <div class="cam-opt-tag cam-tag-base">Included</div>
+            </div>
+          </button>
+
+          <button class="camera-opt" data-key="dual" data-val="120,30,Dual 50+12MP" onclick="selectCamera(this)">
+            <div class="cam-island-preview ci-dual">
+              <div class="ci-lens ci-l1"></div>
+              <div class="ci-lens ci-l2"></div>
+              <div class="ci-flash"></div>
+            </div>
+            <div class="cam-opt-info">
+              <div class="cam-opt-name">Dual</div>
+              <div class="cam-opt-spec">50MP main + 12MP ultrawide</div>
+              <div class="cam-opt-tag">+$120</div>
+            </div>
+          </button>
+
+          <button class="camera-opt" data-key="triple" data-val="280,55,Triple 200+50+12MP" onclick="selectCamera(this)">
+            <div class="cam-island-preview ci-triple">
+              <div class="ci-lens ci-l1"></div>
+              <div class="ci-lens ci-l2"></div>
+              <div class="ci-lens ci-l3"></div>
+              <div class="ci-flash"></div>
+            </div>
+            <div class="cam-opt-info">
+              <div class="cam-opt-name">Triple</div>
+              <div class="cam-opt-spec">200MP + 50MP + 12MP ultrawide</div>
+              <div class="cam-opt-tag">+$280</div>
+            </div>
+          </button>
+
+          <button class="camera-opt" data-key="periscope" data-val="480,80,Quad Periscope 200MP" onclick="selectCamera(this)">
+            <div class="cam-island-preview ci-periscope">
+              <div class="ci-lens ci-l1"></div>
+              <div class="ci-lens ci-l2"></div>
+              <div class="ci-lens ci-l3"></div>
+              <div class="ci-lens ci-l4 ci-periscope-lens"></div>
+              <div class="ci-flash"></div>
+              <div class="ci-lidar"></div>
+            </div>
+            <div class="cam-opt-info">
+              <div class="cam-opt-name">Periscope Quad <span class="cam-badge">PRO</span></div>
+              <div class="cam-opt-spec">200MP + 50MP + 12MP + 10× periscope zoom · LiDAR</div>
+              <div class="cam-opt-tag">+$480</div>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
       <!-- CPU -->
       <div class="card">
         <div class="card-header">
