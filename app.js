@@ -1,13 +1,6 @@
-const ids = [
-  "cpu","ram","storage","display",
-  "camera","battery","cooling",
-  "charging","body"
-];
-
-// --------------------
-// THREE.JS SETUP
-// --------------------
 let scene, camera, renderer, phone;
+
+const ids = ["cpu","ram","storage","battery"];
 
 function init3D(){
 
@@ -15,110 +8,75 @@ function init3D(){
 
     scene = new THREE.Scene();
 
-    // FIXED ASPECT RATIO (IMPORTANT)
-    const width = 300;
-    const height = 620;
+    camera = new THREE.PerspectiveCamera(75, 300/620, 0.1, 1000);
+    camera.position.z = 5;
 
-    camera = new THREE.PerspectiveCamera(
-        75,
-        width / height,
-        0.1,
-        1000
-    );
-
-    renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
-    renderer.setSize(width, height);
-
-    container.innerHTML = ""; // prevents duplicate canvas
+    renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+    renderer.setSize(300,620);
     container.appendChild(renderer.domElement);
 
-    // PHONE MODEL
-    const geometry = new THREE.BoxGeometry(2, 4, 0.2);
+    const geo = new THREE.BoxGeometry(2,4,0.2);
+    const mat = new THREE.MeshStandardMaterial({ color:0x444444 });
 
-    const material = new THREE.MeshStandardMaterial({
-        color:0x444444,
-        roughness:0.3,
-        metalness:0.6
-    });
-
-    phone = new THREE.Mesh(geometry, material);
+    phone = new THREE.Mesh(geo, mat);
     scene.add(phone);
 
-    // LIGHTS (FIXED BRIGHTNESS)
-    const light = new THREE.DirectionalLight(0xffffff, 2);
+    const light = new THREE.DirectionalLight(0xffffff,2);
     light.position.set(5,5,5);
     scene.add(light);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 1));
-
-    camera.position.z = 5;
+    scene.add(new THREE.AmbientLight(0xffffff,0.8));
 
     animate();
 }
 
 function animate(){
     requestAnimationFrame(animate);
-
     phone.rotation.y += 0.01;
-
-    renderer.render(scene, camera);
+    renderer.render(scene,camera);
 }
 
-// --------------------
-// COLOR UPDATE
-// --------------------
-function updateColor(color){
-    phone.material.color.set(color);
-}
-
-// --------------------
-// MAIN CALC
-// --------------------
 function calc(){
 
-    let total = 499;
+    let price = 499;
     let score = 100;
 
     ids.forEach(id=>{
         let v = document.getElementById(id).value.split(",");
-        total += +v[0];
+        price += +v[0];
         score += +v[1];
     });
 
-    document.getElementById("price").innerText = "$" + total;
-    document.getElementById("score").innerText = "Performance: " + score;
+    document.getElementById("price").innerText = "$"+price;
+    document.getElementById("score").innerText = "Performance: "+score;
 
-    document.getElementById("modelLabel").innerText =
-        document.getElementById("model").value;
-
-    updateColor(document.getElementById("color").value);
+    phone.material.color.set(
+        document.getElementById("color").value
+    );
 }
 
-// --------------------
-// EVENTS
-// --------------------
-document.querySelectorAll("select")
-.forEach(s => s.addEventListener("change", calc));
+// -------------------------
+// REAL CHECKOUT (STRIPE)
+// -------------------------
+async function startCheckout(){
 
-// drag rotate
-let dragging = false;
-let lastX = 0;
+    const priceText = document.getElementById("price").innerText;
+    const amount = parseInt(priceText.replace("$","")) * 100;
 
-document.addEventListener("mousedown",(e)=>{
-    dragging = true;
-    lastX = e.clientX;
+    const res = await fetch("http://localhost:4242/create-checkout-session", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ amount })
+    });
+
+    const data = await res.json();
+
+    window.location.href = data.url;
+}
+
+document.querySelectorAll("select").forEach(s=>{
+    s.addEventListener("change", calc);
 });
 
-document.addEventListener("mouseup",()=>dragging=false);
-
-document.addEventListener("mousemove",(e)=>{
-    if(!dragging || !phone) return;
-
-    let dx = e.clientX - lastX;
-    phone.rotation.y += dx * 0.01;
-    lastX = e.clientX;
-});
-
-// INIT
 init3D();
 calc();
