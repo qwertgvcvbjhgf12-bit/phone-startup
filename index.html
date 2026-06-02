@@ -58,10 +58,73 @@
           <span class="card-icon">📱</span>
           <h3>Model</h3>
         </div>
-        <div class="btn-group" id="modelGroup">
-          <button class="opt-btn active" data-val="Custom X1" onclick="selectOpt(this,'modelGroup','modelLabel')">X1</button>
-          <button class="opt-btn" data-val="Custom Ultra" onclick="selectOpt(this,'modelGroup','modelLabel')">Ultra</button>
-          <button class="opt-btn" data-val="Custom Gamer" onclick="selectOpt(this,'modelGroup','modelLabel')">Gamer</button>
+        <div class="model-cards" id="modelGroup">
+          <button class="model-card active" data-val="Custom X1" data-price="0" data-shape="flat" onclick="selectModel(this)">
+            <div class="model-card-icon">⬡</div>
+            <div class="model-card-info">
+              <div class="model-card-name">X1</div>
+              <div class="model-card-sub">Everyday flagship</div>
+            </div>
+            <div class="model-card-price">Base</div>
+          </button>
+          <button class="model-card" data-val="Custom Ultra" data-price="200" data-shape="curved" onclick="selectModel(this)">
+            <div class="model-card-icon">◈</div>
+            <div class="model-card-info">
+              <div class="model-card-name">Ultra</div>
+              <div class="model-card-sub">Curved edge display</div>
+            </div>
+            <div class="model-card-price">+$200</div>
+          </button>
+          <button class="model-card" data-val="Custom Gamer" data-price="150" data-shape="wide" onclick="selectModel(this)">
+            <div class="model-card-icon">◉</div>
+            <div class="model-card-info">
+              <div class="model-card-name">Gamer</div>
+              <div class="model-card-sub">Wide grip · 165Hz</div>
+            </div>
+            <div class="model-card-price">+$150</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Screen -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-icon">🖥️</span>
+          <h3>Display</h3>
+        </div>
+        <div class="screen-options" id="screenGroup">
+          <button class="screen-opt active" data-val="0,10,Flat AMOLED 120Hz" onclick="selectScreen(this)">
+            <div class="screen-preview flat-screen"></div>
+            <div class="screen-info">
+              <div class="screen-name">Flat AMOLED</div>
+              <div class="screen-spec">120Hz · 2400×1080 · HDR10+</div>
+              <div class="screen-tag screen-tag-base">Included</div>
+            </div>
+          </button>
+          <button class="screen-opt" data-val="180,25,Curved AMOLED 120Hz" onclick="selectScreen(this)">
+            <div class="screen-preview curved-screen"></div>
+            <div class="screen-info">
+              <div class="screen-name">Curved Edge</div>
+              <div class="screen-spec">120Hz · 3088×1440 · HDR10+</div>
+              <div class="screen-tag">+$180</div>
+            </div>
+          </button>
+          <button class="screen-opt" data-val="280,40,ProMotion 1-144Hz" onclick="selectScreen(this)">
+            <div class="screen-preview ltpo-screen"></div>
+            <div class="screen-info">
+              <div class="screen-name">ProMotion LTPO</div>
+              <div class="screen-spec">1–144Hz · 3088×1440 · LPDDR5</div>
+              <div class="screen-tag">+$280</div>
+            </div>
+          </button>
+          <button class="screen-opt" data-val="120,5,LCD IPS 60Hz" onclick="selectScreen(this)">
+            <div class="screen-preview lcd-screen"></div>
+            <div class="screen-info">
+              <div class="screen-name">LCD IPS</div>
+              <div class="screen-spec">60Hz · 2400×1080 · True-tone</div>
+              <div class="screen-tag">+$120</div>
+            </div>
+          </button>
         </div>
       </div>
 
@@ -115,9 +178,9 @@
           <h3>Battery</h3>
         </div>
         <div class="btn-group" id="battGroup">
-          <button class="opt-btn active" data-val="0,0,5000mAh" onclick="selectOpt(this,'battGroup'); calc()">5000mAh</button>
-          <button class="opt-btn" data-val="120,20,6500mAh" onclick="selectOpt(this,'battGroup'); calc()">6500mAh</button>
-          <button class="opt-btn" data-val="250,50,8000mAh" onclick="selectOpt(this,'battGroup'); calc()">8000mAh</button>
+          <button class="opt-btn active" data-val="0,0,5000mAh">5000mAh</button>
+          <button class="opt-btn" data-val="120,20,6500mAh">6500mAh</button>
+          <button class="opt-btn" data-val="250,50,8000mAh">8000mAh</button>
         </div>
       </div>
 
