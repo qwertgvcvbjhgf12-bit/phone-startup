@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Three.js -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
 
@@ -17,15 +16,14 @@
 
 <div class="container">
 
-<!-- 3D VIEW -->
+<!-- LEFT -->
 <div class="preview">
     <div id="threeContainer"></div>
-
     <h2 id="modelLabel">Custom X1</h2>
     <div id="compat"></div>
 </div>
 
-<!-- SIDEBAR -->
+<!-- RIGHT -->
 <div class="sidebar">
 
     <div class="card">
@@ -67,56 +65,11 @@
     </div>
 
     <div class="card">
-        <h3>Display</h3>
-        <select id="display">
-            <option value="40,10">OLED 120Hz</option>
-            <option value="160,35">LTPO 144Hz</option>
-            <option value="250,50">MicroLED</option>
-        </select>
-    </div>
-
-    <div class="card">
-        <h3>Camera</h3>
-        <select id="camera">
-            <option value="60,10">Dual</option>
-            <option value="140,25">Triple</option>
-            <option value="400,70">1-inch Sensor Pro</option>
-        </select>
-    </div>
-
-    <div class="card">
         <h3>Battery</h3>
         <select id="battery">
             <option value="0,0">5000mAh</option>
             <option value="120,20">6500mAh</option>
             <option value="250,50">8000mAh</option>
-        </select>
-    </div>
-
-    <div class="card">
-        <h3>Cooling</h3>
-        <select id="cooling">
-            <option value="0,0">Standard</option>
-            <option value="120,25">Vapor Chamber</option>
-            <option value="200,40">Gaming Cooling</option>
-        </select>
-    </div>
-
-    <div class="card">
-        <h3>Charging</h3>
-        <select id="charging">
-            <option value="20,5">45W</option>
-            <option value="100,20">100W</option>
-            <option value="160,35">150W</option>
-        </select>
-    </div>
-
-    <div class="card">
-        <h3>Body</h3>
-        <select id="body">
-            <option value="0,0">Plastic</option>
-            <option value="150,25">Glass</option>
-            <option value="250,45">Titanium</option>
         </select>
     </div>
 
@@ -135,7 +88,25 @@
         <div id="score">Performance: 100</div>
     </div>
 
+    <!-- ACCOUNT -->
+    <div class="card">
+        <h3>Account</h3>
+        <input id="email" type="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+        <button class="secondary" onclick="alert('Demo login')">Login</button>
+    </div>
+
+    <!-- CART -->
+    <div class="card">
+        <h3>Checkout</h3>
+
+        <button class="primary" onclick="startCheckout()">
+            Checkout Now
+        </button>
+    </div>
+
 </div>
+
 </div>
 
 <script src="app.js"></script>
